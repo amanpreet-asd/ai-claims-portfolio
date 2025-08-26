@@ -140,4 +140,108 @@
           </div>
         </div>
 
-        <div id="metrics" class
+        <div id="metrics" class="tab">
+          <div class="metrics">
+            <div class="metric"><div class="h2" style="font-size:20px">Cycle Time</div><div class="p">Track average days from receipt to settlement. Goal is a clear drop after the pilot.</div></div>
+            <div class="metric"><div class="h2" style="font-size:20px">Quality</div><div class="p">Fewer rework events and fewer payout corrections show better accuracy.</div></div>
+            <div class="metric"><div class="h2" style="font-size:20px">Experience</div><div class="p">Customer and broker feedback improves when updates are quick and clear.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="backlog" class="section">
+      <div class="container">
+        <h2 class="h2">Sample Product Backlog</h2>
+        <p class="p">A small set of epics with one user story written out in full to show clarity and testability.</p>
+        <div class="grid cols-3">
+          <div class="card">
+            <div class="hd">Epic. Claims submission automation</div>
+            <div class="bd">
+              <p><strong>User story.</strong> As a broker I want to upload claim documents so the system captures and validates the required data.</p>
+              <p><strong>Acceptance.</strong> Data capture above ninety five percent accuracy, linked to the right policy, missing fields flagged with a clear message.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="hd">Epic. Fraud and anomaly signals</div>
+            <div class="bd">Early signals for suspicious patterns and expired or invalid items.</div>
+          </div>
+          <div class="card">
+            <div class="hd">Epic. Experience and reporting</div>
+            <div class="bd">Clear status views for brokers and claimants and leadership dashboards for outcomes.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section" style="background:#f9fafb">
+      <div class="container">
+        <h2 class="h2">Roadmap</h2>
+        <p class="p">A simple three phase path that balances learning with speed.</p>
+        <div class="grid cols-3">
+          <div class="card"><div class="hd">Phase one. MVP for auto</div><div class="bd">Document intake, validation, status views, and a small pilot with real users.</div></div>
+          <div class="card"><div class="hd">Phase two. Expand to home</div><div class="bd">Add home claims, stronger fraud signals, and workflow refinements from pilot feedback.</div></div>
+          <div class="card"><div class="hd">Phase three. Scale and insights</div><div class="bd">Roll out across regions and launch leadership dashboards and continuous improvement loops.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section hidden">
+      <div class="container">
+        <h2 class="h2">Short demo</h2>
+        <p class="p">A silent twenty second walkthrough of the flow from document intake to validation and suggested outcome.</p>
+        <div class="card" style="padding:16px">
+          <video controls preload="none" poster="/assets/demo-poster.png" class="video">
+            <source src="/assets/ai-claims-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="h2">Contact</h2>
+        <p class="p">If you would like to see a deeper backlog, a simple demo flow, or talk through prioritization, I am happy to share more.</p>
+        <div class="btns">
+          <a class="btn primary" href="mailto:amanpreet.asd@gmail.com">Email Amanpreet</a>
+          <a class="btn" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/amanpreet-dhillon">LinkedIn Profile</a>
+        </div>
+        <div class="small">This is a static site. You can host it on Vercel, GitHub Pages, or any static host.</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-contact">
+    <div class="sticky-inner">
+      <a class="btn primary" href="mailto:amanpreet.asd@gmail.com">Email</a>
+      <a class="btn" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/amanpreet-dhillon">LinkedIn</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">© <!--YEAR--> Amanpreet Dhillon. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function switchTab(id){
+      document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
+      document.querySelector('[data-tab-btn="'+id+'"]').classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      switchTab('problem');
+      const btn = document.getElementById('demoBtn');
+      const section = document.getElementById('demo');
+      if(btn && section){
+        btn.addEventListener('click', ()=>{
+          section.classList.remove('hidden');
+          section.scrollIntoView({behavior:'smooth'});
+        });
+      }
+      document.querySelector('.footer .container').innerHTML = "© " + new Date().getFullYear() + " Amanpreet Dhillon. All rights reserved.";
+    });
+  </script>
+</body>
+</html>
